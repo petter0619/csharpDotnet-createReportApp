@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjektInformation</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            background-color: white;
+            padding: 0;
+            page-break-after: always;
+        }
+
+        .page--substructures {
+            height: auto;
+        }
+
+        .header {
+            background-color: #C0C0C0;
+            border-radius: 5px;
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+            width: 80%;
+            margin: auto;
+            margin-bottom: 20px;
+            margin-top: 10px;
+
+            -webkit-box-shadow: 0px 0px 0px 0px #000000, 3px 3px 0px 1px #000000;
+            box-shadow: 0px 0px 0px 0px #000000, 3px 3px 0px 1px #000000;
+
+        }
+
+        .p1-infoField {
+            width: 100%;
+        }
+
+        .p1-infoField_label {
+            margin-bottom: 0;
+            margin-top: 50px;
+        }
+
+        .p1-infoField_info {
+            background-color: #FFFFCC;
+            border: 1px dotted black;
+            text-align: center;
+            font-weight: bold;
+            padding: 10px 0;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .p1-table {
+            font-size: 18px;
+        }
+
+        .p1-table_col1 {
+            font-weight: bold;
+        }
+
+        .p1-table_col2 {
+            padding: 10px;
+        }
+
+
+        .p2-table {
+            margin: 0 auto;
+            width: 100%;
+            font-size: 18px;
+
+            border-spacing: 20px 15px;
+        }
+
+        .p2-table tr {
+            height: 35px;
+        }
+
+        .p2-table_col1 {
+            font-weight: bold;
+            border-bottom: 1px dotted black;
+            margin-right: 20px;
+        }
+
+        .p2-table_colSeparator {
+            /*padding: 0 10px;*/
+        }
+
+        .p2-table_costCol {
+            background-color: #FFFFCC;
+            border: 1px solid black;
+            text-align: center;
+            width: 150px;
+        }
+
+        .p2-table_m2Cost {
+            border: 1px solid black;
+            text-align: center;
+            font-weight: bold;
+
+            width: 100px;
+        }
+
+        .p2-table tfoot {
+            height: 45px;
+        }
+
+        .p2-table tfoot td:first-child {
+            background-color: #FFFFCC;
+            border: 4px double black;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 23px;
+            text-align: center;
+        }
+
+        .p2-table tfoot .p2-table_costCol,
+        .p2-table tfoot .p2-table_m2Cost {
+            border: 4px double black;
+            font-weight: bold;
+        }
+
+        .p2-infoHeader {
+            margin-bottom: 20px;
+        }
+
+        .p2-infoHeader_left {
+            border-spacing: 20px 15px;
+            display: inline-table;
+            padding-top: 33px;
+        }
+
+        .p2-infoHeader_left-noPadding {
+            padding-top: 0;
+        }
+
+        .p2-infoHeader_left-col2 {
+            border: none;
+            border-bottom: 1px dotted black;
+            font-size: 17px;
+            margin-left: 20px;
+            width: 380px;
+        }
+
+        .p3-substructuresTable {
+            border-spacing: 10px 15px;
+            width: 95%;
+            border: 1px dotted black;
+            margin: 0 auto;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            page-break-after: always;
+        }
+
+        .p3-substructuresTable thead {
+            text-align: center;
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .p3-substructuresTable_col1 {
+            border-bottom: 1px dotted black;
+            font-size: 18px;
+        }
+
+        .p3-substructuresTable_col1--total {
+            background-color: #FFFFCC;
+            border: 4px double black;
+            padding: 5px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .p3-substructuresTable_col2 {
+            width: 1%;
+        }
+
+        .p3-substructuresTable_col3 {
+            background-color: #FFFFCC;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px 0;
+            width: 30%;
+        }
+
+        .p3-substructuresTable_col3--total {
+            border: 4px double black;
+            padding: 5px 0;
+            font-size: 20px;
+            text-align: center;
+            width: 30%;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ProjektInformation page -->
+    <div class="page">
+        <h1 class="header">PROJEKTINFORMATION</h1>
+        
+        <div class="p1-infoField">
+            <h3 class="p1-infoField_label">Projektnamn:</h3>
+            <p class="p1-infoField_info">{{{projectName}}}</p>
+        </div>
+        
+        <div class="p1-infoField">
+            <h3 class="p1-infoField_label">Projektkod:</h3>
+            <p class="p1-infoField_info">{{{projectCode}}}</p>
+        </div>
+        
+        <table class="p1-table">
+            <tr>
+              <td class="p1-table_col1">Bruttoarea [m2]</td>
+              <td class="p1-table_col2">:</td>
+              <td>{{{bruttoarea}}}</td>
+            </tr>
+            <tr>
+                <td class="p1-table_col1">Antal Våningar [m2]</td>
+                <td class="p1-table_col2">:</td>
+                <td>{{{antalVaningar}}}</td>
+            </tr>
+            <tr>
+                <td class="p1-table_col1">Byggnadsarea [m2]</td>
+                <td class="p1-table_col2">:</td>
+                <td>{{{byggnadsarea}}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--<hr style="margin: 0; padding: 0;">-->
+
+    <!-- ProduktionsKostnad page -->
+    <div class="page">
+        <h1 class="header">PRODUKTIONSKOSTNAD</h1>
+
+        <div class="p2-infoHeader">
+            <table class="p2-infoHeader_left">
+                <tr>
+                    <td>Projektnamn:</td>
+                    <td class="p2-infoHeader_left-col2"><strong>{{{projectName}}}</strong></td>
+                </tr>
+                <tr>
+                    <td class="">Kod:</td>
+                    <td class="p2-infoHeader_left-col2">{{{projectCode}}}</td>
+                </tr>
+                <tr>
+                    <td class="">Datum:</td>
+                    <td class="p2-infoHeader_left-col2">{{{date}}}</td>
+                </tr>
+                <tr>
+                    <td class="">Bruttoarea (m2):</td>
+                    <td class="p2-infoHeader_leftt-col2">{{{bruttoarea}}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <table class="p2-table">
+            <thead>
+            <th></th>
+            <th></th>
+            <th>Totalt [SEK]</th>
+            <th>/m2</th>
+            </thead>
+            <tr>
+                <td class="p2-table_col1">Mängd</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltMangd}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Mangd}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">EnH</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltEnh}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Enh}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">Material</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltMaterial}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Material}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">Arbete</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltArbete}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Arbete}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">Maskin</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltMaskin}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Maskin}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">UE</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltUe}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Ue}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1">Pris</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltPris}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Pris}}}</td>
+            </tr>
+            <tr>
+                <td class="p2-table_col1"></td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol"></td>
+                <td class="p2-table_m2Cost"></td>
+            </tr>
+            <tfoot>
+                <td>TOTAL</td>
+                <td class="p2-table_colSeparator"></td>
+                <td class="p2-table_costCol">{{{totaltTotal}}}</td>
+                <td class="p2-table_m2Cost">{{{m2Total}}}</td>
+            </tfoot>
+        </table>
+    </div>
+
+    <!--<hr style="margin: 0; padding: 0;">-->
+
+    <!-- Substrukturer page -->
+    <div class="page page--substructures">
+        <h1 class="header">SUBSTRUKTURER</h1>
+
+        <div class="p2-infoHeader">
+            <table class="p2-infoHeader_left p2-infoHeader_left-noPadding">
+                <tr>
+                    <td>Projektnamn:</td>
+                    <td class="p2-infoHeader_left-col2">{{{projectName}}}</td>
+                </tr>
+                <tr>
+                    <td class="">Datum:</td>
+                    <td class="p2-infoHeader_left-col2">{{{date}}}</td>
+                </tr>
+            </table>
+        </div>
+        {{{substructureRows}}}
+
+        <!--
+        <table class="p3-substructuresTable">
+            <thead>
+                <tr>
+                    <th colspan="3">Garage</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="p3-substructuresTable_col1">Mängd</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">EnH</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">Material</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">Arbete</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">Maskin</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">UE</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td class="p3-substructuresTable_col1">Pris</td>
+                    <td class="p3-substructuresTable_col2"></td>
+                    <td class="p3-substructuresTable_col3">1234</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="p3-substructuresTable_col1--total">TOTAL [SEK]</td>
+                    <td></td>
+                    <td class="p3-substructuresTable_col3--total">32100000</td>
+                </tr>
+            </tfoot>
+        </table>
+        -->
+    </div>
+</body>
+</html>
